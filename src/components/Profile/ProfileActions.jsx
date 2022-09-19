@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import { STORAGE_KEY_USER } from "../../const/storageKeys"
 import { useUser } from "../../context/UserContext"
 import { storageDelete, storageSave } from "../../utils/storage"
