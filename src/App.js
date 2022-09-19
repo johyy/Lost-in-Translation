@@ -7,13 +7,15 @@ import {
 import Login from './views/Login';
 import Translation from './views/Translation';
 import Profile from './views/Profile';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
 
   return (
     <BrowserRouter>
     <div className="App">
-      <Routes>
+      <Navbar />
+      <Routes className="Routes">
         <Route path="/" element={ <Login />} />
         <Route path="/translation" element={ <Translation />} />
         <Route path="/profile" element={ <Profile />} />

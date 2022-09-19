@@ -1,4 +1,10 @@
-import { useForm } from 'react-hook-form'
+import { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { loginUser } from '../../api/user';
+import { storageSave } from '../../utils/storage';
+import { useNavigate} from 'react-router-dom';
+import { useUser } from '../../context/UserContext';
+import { STORAGE_KEY_USER } from '../../const/storageKeys';
 
 const usernameConfig = {
     required: true,
@@ -6,17 +12,31 @@ const usernameConfig = {
 }
 
 const LoginForm = () => {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors }
-    } = useForm()
+    const { register, handleSubmit, formState: { errors } } = useForm()
+    const { user, setUser } = useUser()
+    const navigate = useNavigate()
 
-    const onSubmit = (data) => {
-        console.log(data)
+    const [ loading, setLoading ] = useState(false)
+    const [ apiError, setApiError ] = useState(null)
+
+    useEffect(() => {
+        if (user !== null) {
+            navigate('translation')
+        }
+    }, [ user, navigate ])
+
+    const onSubmit = async ({ username }) => {
+        setLoading(true)
+        const [ error, userResponse ] = await loginUser(username)
+        if (error !== null) {
+            setApiError(error)
+        }
+        if (userResponse  !== null) {
+            storageSave(STORAGE_KEY_USER, userResponse)
+            setUser(userResponse)
+        }
+        setLoading(false)
     }
-
-    console.log(errors)
 
     const errorMessage = (() => {
         if (!errors.username) {
@@ -24,28 +44,29 @@ const LoginForm = () => {
         }
 
         if (errors.username.type === 'required') {
-            return <span> Username is required</span>
+            return <span className="username"> Username is required</span>
         }
 
         if (errors.username.type === 'minLength') {
-            return <span> Username is too short (min 2 characters)</span>
+            return <span className="username"> Username is too short (min 2 characters)</span>
         }
     })()
 
     return (
-        <>
-            <h2>Get started</h2>
+        <>  
+        <div className="form_div">
             <form onSubmit={ handleSubmit(onSubmit) }>
-                <fieldset>
-                    <label htmlFor="username"></label>
-                    <input 
-                        type="text"
-                        placeholder="What's your name?"
-                        { ...register("username", usernameConfig)} />
-                { errorMessage }
-                </fieldset>
-                <button type="submit">-></button>
+                    <label hidden htmlFor="username">Username: </label>
+                    <input className="input" type="text" placeholder="What's your name?" maxLength={15}{ ...register("username", usernameConfig)} />
+                 
+                    <div className="button_div">
+                 <button className="submit" type="submit" disabled={ loading }>»</button>
+                 </div>
+                 { errorMessage }
+                 { loading && <p className='username'>Logging in...</p>}
+                 { apiError && <p>{ apiError }</p>}
             </form>
+            </div>
         </>
     )
 }
