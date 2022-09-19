@@ -6,14 +6,15 @@ const InputForm = ({ onTranslation }) => {
     const onSubmit = ({ translationNotes }) => { onTranslation(translationNotes) }
 
     return (
-        <form onSubmit={ handleSubmit(onSubmit) }>
-            <fieldset>
+        <div className="form_div2">
+            <form onSubmit={ handleSubmit(onSubmit) }>
                 <label htmlFor="translation-notes"></label>
-                <input type="text" { ...register("translationNotes")} placeholder="Hello" />
-            </fieldset>
-
-            <button type="submit">Translation</button>
-        </form>
+                <input className="input"  type="text" maxLength={40} { ...register('translationNotes') } placeholder='Hello' />
+                <div className="button_div">
+                    <button className="submit" type="submit">»</button>
+                </div>
+            </form>
+        </div>
     )
 }
 

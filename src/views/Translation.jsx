@@ -25,13 +25,18 @@ const Translation = () => {
 
         console.log("Error", error)
         console.log("updatedUser", updatedUser)
-
     }
 
     return (
-        <section id="translation-notes">
-            <InputForm onTranslation={ handleTranslation } />
-        </section>
+        <>
+            <div className="yellow">
+                <section id="translation-notes">
+                    <InputForm onTranslation={ handleTranslation } />
+                </section>
+            </div>
+            <div className="translate">
+            </div>
+        </>
     )
 }
 

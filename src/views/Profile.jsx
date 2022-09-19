@@ -12,28 +12,27 @@ const Profile = () => {
 
     const { user, setUser } = useUser()
 
-    useEffect(() => {
+    useEffect(() => { (async function() {
+            const [ error, latestUser ] = await userById(user.id)
 
-        const findUser = async () => {
-            const[ error, latestUser ] = await userById(user.id)
-            if (error === null) {
+            if (error == null) {
                 storageSave(STORAGE_KEY_USER, latestUser)
                 setUser(latestUser)
             }
-        }
-
-        // findUser()
-
+        })()
     }, [ setUser, user.id ])
+
 
     return (
         <>
-        <h1>Profile</h1>
-        <ProfileHeader username={ user.username }/>
-        <ProfileActions />
-        <ProfileTranslationHistory translations={ user.translations }/>
+            <div className="yellow bigger">
+                <ProfileHeader username={ user.username } />
+                <ProfileActions />
+            </div>
+            <div className="translations_box">
+                <ProfileTranslationHistory translations={ user.translations } />
+            </div>
         </>
     )
 }
-
 export default withAuth(Profile)

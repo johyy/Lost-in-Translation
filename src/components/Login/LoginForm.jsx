@@ -44,31 +44,29 @@ const LoginForm = () => {
         }
 
         if (errors.username.type === 'required') {
-            return <span> Username is required</span>
+            return <span className="username"> Username is required</span>
         }
 
         if (errors.username.type === 'minLength') {
-            return <span> Username is too short (min 2 characters)</span>
+            return <span className="username"> Username is too short (min 2 characters)</span>
         }
     })()
 
     return (
-        <>
-            <h2>Get started</h2>
+        <>  
+        <div className="form_div">
             <form onSubmit={ handleSubmit(onSubmit) }>
-                <fieldset>
-                    <label htmlFor="username"></label>
-                    <input 
-                        type="text"
-                        placeholder="What's your name?"
-                        { ...register("username", usernameConfig)} />
-                { errorMessage }
-                </fieldset>
-                <button type="submit" disabled={ loading }>-></button>
-
-                { loading && <p>Logging in...</p> }
-                { apiError && <p>{ apiError }</p>}
+                    <label hidden htmlFor="username">Username: </label>
+                    <input className="input" type="text" placeholder="What's your name?" maxLength={15}{ ...register("username", usernameConfig)} />
+                 
+                    <div className="button_div">
+                 <button className="submit" type="submit" disabled={ loading }>»</button>
+                 </div>
+                 { errorMessage }
+                 { loading && <p className='username'>Logging in...</p>}
+                 { apiError && <p>{ apiError }</p>}
             </form>
+            </div>
         </>
     )
 }
