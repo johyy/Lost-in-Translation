@@ -26,8 +26,9 @@ h1, h2, h3 {
 }
 
 .translation_history {
+  padding-top: 1em;
   color: black;
-  font-family: 'Sanchez';
+  font-family: 'Love Ya Like A Sister';
 }
 
 .no_translations {
