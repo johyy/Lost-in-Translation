@@ -40,6 +40,7 @@ export const translationClearHistory =  userId => {
       if (!response.ok) {
         throw new Error('Could not update translations history')
       }
+      window.location.reload(false)
       return response.json()
     })
     .then(updatedUser => {
