@@ -29,9 +29,9 @@ const Translation = () => {
     }
 
     return (
-        <section id="translation-notes">
-            <InputForm onTranslation={ handleTranslation } />
-        </section>
+            <section id="translation-notes">
+                <InputForm onTranslation={ handleTranslation } />
+            </section>
     )
 }
 
