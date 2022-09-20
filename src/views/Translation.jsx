@@ -34,8 +34,6 @@ const Translation = () => {
                     <InputForm onTranslation={ handleTranslation } />
                 </section>
             </div>
-            <div className="translate">
-            </div>
         </>
     )
 }
