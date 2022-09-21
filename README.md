@@ -29,5 +29,5 @@ This is possible as long as our heroku API is up, but the changes Heroku has dec
 
 Also at the moment website is running in [Heroku](https://lost-in-translation-jojo.herokuapp.com/).
 
-## maintainers
+## Maintainers
 [@Jonna Hyypiä](https://gitlab.com/johyy) [@Joni Kokko](https://gitlab.com/joniko)
