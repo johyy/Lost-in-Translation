@@ -9,7 +9,6 @@ const Navbar = () => {
     return (
         <nav>
             <ul>
-                <li><img src="img/Logo-Hello.png" alt="hello" className="navlogo" /></li>
                 <li>Lost in Translation</li>
             </ul>
             { user !== null &&
