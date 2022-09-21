@@ -24,7 +24,7 @@ The website had to contain three pages:
 4. The profile page should contain two buttons. One for to display last ten translations in text which the current user has made and a button for logging out.
 
 ## Install
-The project was created with React so Node and that for npm is required to run this locally. You can clone the repository and use **npm istall** and **npm run dev** to run it.
+The project was created with React so Node and that for npm is required to run this locally. You can clone the repository and use **npm install** and **npm run dev** to run it.
 This is possible as long as our heroku API is up, but the changes Heroku has decided to do, this might not be possible in the future. Then you need some API hosting and possible code changes.
 
 Also at the moment website is running in [Heroku](https://lost-in-translation-jojo.herokuapp.com/).
