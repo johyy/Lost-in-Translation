@@ -5,8 +5,8 @@ The course is delivered by Noroff and this is the second part of the Frontend si
 
 ## Table of Contents
 1. [Background](#background)
-2. [Install](#isntall)
-3. [Maintainers](#third-example)
+2. [Install](#install)
+3. [Maintainers](#maintainers)
 
 ## Background
 The assigment was to create a React website to translate text input to the hand sign images, but also store the text input to through the API.
