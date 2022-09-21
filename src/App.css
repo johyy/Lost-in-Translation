@@ -62,12 +62,6 @@ nav li {
   font-size: 20px;
 }
 
-.navlogo {
-  max-width: 40px;
-  margin: -5px;
-  padding-left: 150px;
-}
-
 .grid {
   padding: 2em;
   display: grid;
