@@ -1,5 +1,5 @@
 
-# JavaScript Assigment 2 - Lost in Translationy
+# JavaScript Assignment 2 - Lost in Translation
 This is a React website application project which is part of the Java Fullstack course.
 The course is delivered by Noroff and this is the second part of the Frontend side of the course.
 
@@ -9,7 +9,7 @@ The course is delivered by Noroff and this is the second part of the Frontend si
 3. [Maintainers](#maintainers)
 
 ## Background
-The assigment was to create a React website to translate text input to the hand sign images, but also store the text input to through the API.
+The assignment was to create a React website to translate text input to the hand sign images, but also store the text input to through the API.
 The website had to contain three pages:
 
 - Login page
